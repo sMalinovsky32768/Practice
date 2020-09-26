@@ -8,9 +8,16 @@ namespace Fifth
         static void Main()
         {
             Write("Enter a number: ");
-            if (int.TryParse(ReadLine(), out var x) && x >= 0)
+            if (int.TryParse(ReadLine(), out var x))
             {
-                WriteLine($"The factorial of the number {x} ({x}!) is {Factorial(x)}");
+                try
+                {
+                    WriteLine($"The factorial of the number {x} ({x}!) is {Factorial(x)}");
+                }
+                catch (Exception ex)
+                {
+                    WriteLine(ex.Message);
+                }
             }
             else
             {
@@ -18,8 +25,17 @@ namespace Fifth
             }
         }
 
+        /// <summary>
+        /// Вычисляет факториал числа x
+        /// </summary>
+        /// <param name="x">Целое неотрицательное число</param>
+        /// <returns></returns>
         static long Factorial(int x)
         {
+            if (x < 0)
+            {
+                throw new Exception("Value is a negative");
+            }
             if (x == 0 || x == 1)
             {
                 return 1;
