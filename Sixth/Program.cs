@@ -57,6 +57,25 @@ namespace Sixth
             }
         }
 
+        /// <summary>
+        /// Анализирует число
+        /// </summary>
+        /// <param name="x">Анализируемое число</param>
+        /// <param name="numbers">Массив чисел, для проверки на деление без остатка</param>
+        /// <param name="isPositive">
+        /// Является ли число положительным.
+        /// true - число положительное,
+        /// false - число отрицательное,
+        /// null - введенное число равно 0
+        /// </param>
+        /// <param name="isPrimeNumber">
+        /// true - число простое,
+        /// false - число составное,
+        /// null - число не простое, ни составное (0 или отрицательное не составное число)
+        /// </param>
+        /// <param name="withoutResidue">
+        /// Содержит пары ключ-значение, где ключ - число из массива numbers, значение - делится ли число на ключ без остатка
+        /// </param>
         static void AnalysisOfTheInteger(int x, int[] numbers, out bool? isPositive, out bool? isPrimeNumber, out Dictionary<int, bool> withoutResidue)
         {
             withoutResidue = new Dictionary<int, bool>();
@@ -64,9 +83,12 @@ namespace Sixth
             {
                 isPositive = null;
                 isPrimeNumber = null;
-                foreach (var item in numbers)
+                if (numbers != null)
                 {
-                    withoutResidue.Add(item, true);
+                    foreach (var item in numbers)
+                    {
+                        withoutResidue.Add(item, true);
+                    }
                 }
             }
             else
@@ -88,9 +110,12 @@ namespace Sixth
                         }
                     }
                 }
-                foreach (var item in numbers)
+                if (numbers != null)
                 {
-                    withoutResidue.Add(item, x % item == 0);
+                    foreach (var item in numbers)
+                    {
+                        withoutResidue.Add(item, x % item == 0);
+                    }
                 }
             }
         }
