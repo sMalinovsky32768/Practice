@@ -9,11 +9,15 @@ namespace Sixth
     {
         static void Main()
         {
-            while (true)
+            var flag = true;
+
+            while (flag)
             {
                 Write("Enter a number: ");
                 if (int.TryParse(ReadLine(), out var x))
                 {
+                    flag = false;
+
                     AnalysisOfTheInteger(x, new[] { 2, 3, 5, 6, 9 }, out var isPositive, out var isPrimeNumber, out var withoutResuid);
 
                     var isPositiveStr = !isPositive.HasValue ? "0" : isPositive.Value ? "positive" : "negative";
