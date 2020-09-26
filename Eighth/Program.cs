@@ -98,7 +98,7 @@ namespace Eighth
                 }
                 else
                 {
-                    WriteLine("Value is not a not-nagative number\n");
+                    WriteLine("Value is not a positive number\n");
                 }
             }
         }
