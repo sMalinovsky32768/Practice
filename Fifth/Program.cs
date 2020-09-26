@@ -21,7 +21,7 @@ namespace Fifth
             }
             else
             {
-                WriteLine("Value is not a not-nagative number");
+                WriteLine("Value is not a number");
             }
         }
 
