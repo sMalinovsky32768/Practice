@@ -71,7 +71,7 @@ namespace Eighth
                                     // Если индекс последнего элемента нового массива вне диапазона оригинального сообщаем пользователю
                                     if (index + subCount > array.Length)
                                     {
-                                        WriteLine($"Value {index} + {count} exceeds the side of array\n");
+                                        WriteLine($"Value {index} + {subCount} exceeds the side of array\n");
                                         continue;
                                     }
                                     subCountFlag = false;
